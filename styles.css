@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#timeline-container {
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 90%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item {
+    width: 15px;
+    height: 10px;
+    margin-right: 0px;
+}
+
+.timeline-item:first-child {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.timeline-item:last-child {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}

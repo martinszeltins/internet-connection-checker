@@ -16,20 +16,20 @@ log_status() {
 check_internet() {
     local check1 check2 check3 check4
 
-    ping -c 1 google.com &> /dev/null
+    timeout 6 ping -c 1 google.com &> /dev/null
     check1=$?
 
     sleep 5
 
-    curl --max-time 6 --connect-timeout 6 --retry 0 -s https://www.apple.com | grep -i "<html" &> /dev/null
+    timeout 6 curl -s https://www.apple.com | grep -i "<html" &> /dev/null
     check2=$?
 
     sleep 5
 
-    curl --max-time 6 --connect-timeout 6 --retry 0 -s https://www.google.com | grep -i "<html" &> /dev/null
+    timeout 6 curl -s https://www.google.com | grep -i "<html" &> /dev/null
     check3=$?
 
-    curl --max-time 6 --connect-timeout 6 --retry 0 -s https://github.com | grep -i "<html" &> /dev/null
+    timeout 6 curl -s https://github.com | grep -i "<html" &> /dev/null
     check4=$?
 
     # Determine overall status
